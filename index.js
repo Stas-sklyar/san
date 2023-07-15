@@ -2,12 +2,11 @@ const express = require('express')
 const { generatePDF } = require('./generate-pdf.js')
 const app = express()
 const globals = require('./config.js')
+const cors = require('cors');
 
-app.get('', async (req, res) => {
+app.use(cors());
+app.post('', async (req, res) => {
     const { fileName, pdfBuffer, error } = await generatePDF('some test data')
-    const options = {
-        type: 'application/pdf'
-    }
 
     if (error) {
         console.error(error)
@@ -16,7 +15,9 @@ app.get('', async (req, res) => {
     }
 
     res.attachment(`${fileName}.pdf`)
-    res.set(options)
+    res.setHeader('Content-Type', 'application/pdf')
+    res.setHeader('Content-Disposition', 'attachment')
+    res.header('Access-Control-Allow-Origin', '*')
     res.send(pdfBuffer)
 })
 

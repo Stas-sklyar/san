@@ -4,7 +4,6 @@ const globals = require('./config.js')
 
 async function generatePDF(data) {
     try {
-        const fileName = 'file'
         const browser = await puppeteer.launch({
             headless: true
         })
@@ -21,10 +20,10 @@ async function generatePDF(data) {
 
         await browser.close()
 
-        return { fileName, pdfBuffer }
+        return { pdfBuffer, error: null }
     } catch (error) {
         console.error(error)
-        return { fileName: null, pdfBuffer: null, error }
+        return { pdfBuffer: null, error }
     }
 }
 
