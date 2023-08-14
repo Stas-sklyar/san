@@ -9,199 +9,316 @@
 
     <style>
         body {
-            font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-            text-align: center;
-            color: #777;
+            height: 100%;
+            padding: 0;
+            margin: 0;
         }
 
-        body h1 {
-            font-weight: 300;
-            margin-bottom: 0px;
-            padding-bottom: 0px;
-            color: #000;
+        header {
+            padding: 25px 25px 65px 25px;
+            background-color: #7D70AD;
+            display: flex;
+            justify-content: center;
         }
 
-        body h3 {
-            font-weight: 300;
-            margin-top: 10px;
+        .header__box:first-child {
+            white-space: nowrap;
+        }
+
+        .header__box:last-child {
+            flex-grow: 1;
+        }
+
+        .terapist-main-info {
+            color: #ffffff;
+        }
+
+        .header__box:first-child {
+            margin-right: 32px;
+        }
+
+        .terapist-main-info__title {
             margin-bottom: 20px;
-            font-style: italic;
-            color: #555;
+            font-size: 34px;
         }
 
-        body a {
-            color: #06f;
+        .terapist-main-info__full-name {
+            margin-bottom: 20px;
+            font-size: 57px;
+            font-weight: 600;
         }
 
-        .invoice-box {
-            max-width: 800px;
-            margin: auto;
-            padding: 30px;
-            border: 1px solid #eee;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-            font-size: 16px;
-            line-height: 24px;
-            font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-            color: #555;
+        .specialties {
+            font-size: 31px;
         }
 
-        .invoice-box table {
+        .terapist-avatar {
+            overflow: hidden;
+        }
+
+        .terapist-avatar__img {
+            background: url("./images/terapist_avatar.png") no-repeat;
+            background-size: contain;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+        }
+
+        .rating__label {
+            font-size: 14px;
+            color: #582144;
+        }
+
+        .body {
+            display: flex;
+            padding: 0 25px;
+        }
+
+        .body__col {
+            width: 50%;
+        }
+
+        .body__col:first-child {
+            margin-right: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .body__col:last-child {
+            margin-left: 25px;
+        }
+
+        .biography {
+            padding: 20px;
+            background-color: #FBF6E3;
+            border-radius: 28px;
+            color: #000000;
+        }
+
+        .biography__title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .biography__content {
+            font-size: 23px;
+        }
+
+        .areas {
+            position: relative;
+            padding: 20px;
+            background-color: #CFBFC7;
+            border-radius: 28px;
+            color: #000000;
+            margin-bottom: 25px;
+        }
+
+        .areas:before {
+            content: url("./images/areas_of_focus_icon.png");
+            position: absolute;
+            left: 0;
+            top: 45px;
+            width: 90px;
+            height: 90px;
+            transform: translateX(-50%);
+        }
+
+        .areas__title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .areas-list {
+            margin: 0;
+            padding: 0 0 0 30px;
+        }
+
+        .areas-list__item {
+            font-size: 23px;
+            list-style-type: none;
+        }
+
+        .areas-list__item:before {
+            content: "+";
+            margin-right: 16px;
+            color: #582144;
+            font-weight: 700;
+        }
+
+        .certifications {
+            position: relative;
+            padding: 20px;
+            background-color: #E3E7D1;
+            border-radius: 28px;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+        .certifications:before {
+            content: url("./images/certifications_icon.png");
+            position: absolute;
+            left: 0;
+            top: 45px;
+            width: 90px;
+            height: 90px;
+            transform: translateX(-50%);
+        }
+
+        .certifications__title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .certifications-list {
+            margin: 0;
+            padding: 0 0 0 50px;
+        }
+
+        .certifications-list__item {
+            font-size: 23px;
+        }
+
+        .book-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 34px;
+            font-weight: 600;
+            color: #ffffff;
+            height: 120px;
             width: 100%;
-            line-height: inherit;
-            text-align: left;
-            border-collapse: collapse;
+            border-radius: 40px;
+            background-color: #7D70AD;
         }
 
-        .invoice-box table td {
-            padding: 5px;
-            vertical-align: top;
+        .logo {
+            width: 350px;
+            height: 100px;
+            background: url(./images/logo.png) no-repeat;
+            background-size: contain;
+            margin-left: auto;
         }
 
-        .invoice-box table tr td:nth-child(2) {
-            text-align: right;
+        .rating {
+            display: flex;
+            justify-content: space-between;
+            padding-left: 25px;
+            margin-top: -50px;
+            margin-bottom: 10px;
         }
 
-        .invoice-box table tr.top table td {
-            padding-bottom: 20px;
+        .rating__stars {
+            display: flex;
         }
 
-        .invoice-box table tr.top table td.title {
-            font-size: 45px;
-            line-height: 45px;
-            color: #333;
+        .rating__star {
+            width: 85px;
+            height: 85px;
+            background: url("./images/default_star_icon.png") no-repeat;
         }
 
-        .invoice-box table tr.information table td {
-            padding-bottom: 40px;
+        .rating__star--active {
+            background: url("./images/filled_star_icon.png") no-repeat;
         }
 
-        .invoice-box table tr.heading td {
-            background: #eee;
-            border-bottom: 1px solid #ddd;
-            font-weight: bold;
-        }
-
-        .invoice-box table tr.details td {
-            padding-bottom: 20px;
-        }
-
-        .invoice-box table tr.item td {
-            border-bottom: 1px solid #eee;
-        }
-
-        .invoice-box table tr.item.last td {
-            border-bottom: none;
-        }
-
-        .invoice-box table tr.total td:nth-child(2) {
-            border-top: 2px solid #eee;
-            font-weight: bold;
-        }
-
-        @media only screen and (max-width: 600px) {
-            .invoice-box table tr.top table td {
-                width: 100%;
-                display: block;
-                text-align: center;
-            }
-
-            .invoice-box table tr.information table td {
-                width: 100%;
-                display: block;
-                text-align: center;
-            }
+        .certificate-icon {
+            border-radius: 50%;
+            margin-right: 25px;
+            width: 120px;
+            height: 120px;
+            background: url("./images/nams_certificate_icon.png") no-repeat;
         }
     </style>
 
     <body>
-        <h1 id="title">A simple, clean, and responsive HTML invoice template</h1>
-        <h3>Because sometimes, all you need is something simple.</h3>
-        Find the code on <a href="https://github.com/sparksuite/simple-html-invoice-template">GitHub</a>. Licensed under the
-        <a href="http://opensource.org/licenses/MIT" target="_blank">MIT license</a>.<br /><br /><br />
+        <header class="header">
+            <div class="header__box terapist-main-info">
+                <div class="terapist-main-info__title">Your Recommended Clinician:</div>
+                <div class="terapist-main-info__full-name">Dr. Kara Dionisio</div>
+                <div class="terapist-main-info__specialties-list specialties">
+                    <div class="specialties__item">Naturopathic Doctor</div>
+                    <div class="specialties__item">Naturopathic 2</div>
+                </div>
+            </div>
 
-        <div class="invoice-box">
-            <table>
-                <tr class="top">
-                    <td colspan="2">
-                        <table>
-                            <tr>
-                                <td class="title">
-                                    <img src="./images/logo.png" alt="Company logo" style="width: 100%; max-width: 300px" />
-                                </td>
+            <div class="header__box terapist-avatar">
+                <div class="terapist-avatar__img"></div>
+            </div>
+        </header>
 
-                                <td>
-                                    Invoice #: 123<br />
-                                    Created: January 1, 2015<br />
-                                    Due: February 1, 2015
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
+        <div class="rating">
+            <div class="rating__col rating-col">
+                <div class="rating-col__item rating__stars">
+                    <div class="rating__star rating__star--active"></div>
+                    <div class="rating__star rating__star--active"></div>
+                    <div class="rating__star rating__star--active"></div>
+                    <div class="rating__star rating__star--active"></div>
+                    <div class="rating__star"></div>
+                </div>
 
-                <tr class="information">
-                    <td colspan="2">
-                        <table>
-                            <tr>
-                                <td>
-                                    Sparksuite, Inc.<br />
-                                    12345 Sunny Road<br />
-                                    Sunnyville, TX 12345
-                                </td>
+                <div class="rating-col__item rating__label">
+                    *Ratings are a combination of sourced ratings and reviews, including our </br>
+                    client's first-hand experience.
+                </div>
+            </div>
 
-                                <td>
-                                    Acme Corp.<br />
-                                    John Doe<br />
-                                    john@example.com
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-
-                <tr class="heading">
-                    <td>Payment Method</td>
-
-                    <td>Check #</td>
-                </tr>
-
-                <tr class="details">
-                    <td>Check</td>
-
-                    <td>1000</td>
-                </tr>
-
-                <tr class="heading">
-                    <td>Item</td>
-
-                    <td>Price</td>
-                </tr>
-
-                <tr class="item">
-                    <td>Website design</td>
-
-                    <td>$300.00</td>
-                </tr>
-
-                <tr class="item">
-                    <td>Hosting (3 months)</td>
-
-                    <td>$75.00</td>
-                </tr>
-
-                <tr class="item last">
-                    <td>Domain name (1 year)</td>
-
-                    <td>$10.00</td>
-                </tr>
-
-                <tr class="total">
-                    <td></td>
-
-                    <td>Total: $385.00</td>
-                </tr>
-            </table>
+            <div class="rating__col rating-col">
+                <div class="rating-col__item certificate-icon"></div>
+            </div>
         </div>
+
+        <div class="body">
+            <div class="body__col body-col">
+                <div class="body-col__item biography">
+                    <div class="biography__title">About Dr. Kara Dioniso</div>
+
+                    <div class="biography__content">Dr. Kara Dioniso is a leader in
+                        the field of menopause practice
+                        and she is regularly invited to
+                        speak to naturopathic doctors
+                        across North America. Dr. Kara
+                        Dionisio is a NAMS-certified
+                        menopause practitioner since
+                        2020 and holds an IMPART
+                        Menopause Certificate and a
+                        level 1 training in Pelvic Floor
+                        Physiotherapy.</div>
+                </div>
+
+                <a class="body-col__item book-link" href="#">Book Appointment</a>
+            </div>
+
+            <div class="body__col body-col">
+                <div class="body-col__item areas">
+                    <div class="areas__title">Areas of Focus:</div>
+
+                    <ul class="areas__list areas-list">
+                        <li class="areas-list__item">Hormone Replacement Therapy</li>
+                        <li class="areas-list__item">Hormone Replacement Therapy</li>
+                        <li class="areas-list__item">Hormone Replacement Therapy</li>
+                        <li class="areas-list__item">Hormone Replacement Therapy</li>
+                        <li class="areas-list__item">Hormone Replacement Therapy</li>
+                    </ul>
+                </div>
+
+                <div class="body-col__item certifications">
+                    <div class="certifications__title">Certifications:</div>
+
+                    <ul class="certifications__list certifications-list">
+                        <li class="certifications-list__item">2008 - Canadian College of</li>
+                        <li class="certifications-list__item">2008 - Canadian College of</li>
+                        <li class="certifications-list__item">2008 - Canadian College of</li>
+                    </ul>
+                </div>
+
+                <div class="body-col__item logo"></div>
+            </div>
+        </div>
+
     </body>
 
     <script>

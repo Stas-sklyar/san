@@ -11,11 +11,12 @@ async function generatePDF(data) {
         const html = fs.readFileSync(globals.pathToHTMLTemplate, 'utf8')
 
         await page.setContent(html, {
-            waitUntil: 'domcontentloaded'
+            waitUntil: 'load'
         })
 
         const pdfBuffer = await page.pdf({
-            format: 'A4'
+            format: 'A4',
+            printBackground: true,
         })
 
         await browser.close()
