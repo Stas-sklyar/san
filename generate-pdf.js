@@ -4,6 +4,8 @@ const globals = require('./config.js')
 
 async function generatePDF(data) {
     try {
+        pasteTerapistDataIntoTemplate(data)
+
         const browser = await puppeteer.launch({
             headless: true
         })
@@ -26,6 +28,26 @@ async function generatePDF(data) {
         console.error(error)
         return { pdfBuffer: null, error }
     }
+}
+
+function pasteTerapistDataIntoTemplate(newData) {
+    const filePath = 'data.js';
+
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading file:', err);
+            return;
+        }
+
+        const updatedData = data.replace('const data = {};', `const data = ${JSON.stringify(newData)};`);
+
+        fs.writeFile(filePath, updatedData, 'utf8', (err) => {
+            if (err) {
+                console.error('Error writing file:', err);
+                return;
+            }
+        });
+    });
 }
 
 module.exports = { generatePDF }
