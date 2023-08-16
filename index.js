@@ -6,7 +6,7 @@ const cors = require('cors');
 
 app.use(cors());
 app.post('', async (req, res) => {
-    const { fileName, pdfBuffer, error } = await generatePDF('some test data')
+    const { pdfBuffer, error } = await generatePDF('some test data')
 
     if (error) {
         console.error(error)
@@ -14,7 +14,7 @@ app.post('', async (req, res) => {
         return
     }
 
-    res.attachment(`${fileName}.pdf`)
+    res.attachment(`stas.pdf`)
     res.setHeader('Content-Type', 'application/pdf')
     res.setHeader('Content-Disposition', 'attachment')
     res.header('Access-Control-Allow-Origin', '*')

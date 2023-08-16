@@ -4,14 +4,17 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Template</title>
-        <link rel="stylesheet" type="text/css" href="styles.css" />
     </head>
 
     <style>
+        html {
+            print-color-adjust: exact !important;
+        }
         body {
             height: 100%;
             padding: 0;
             margin: 0;
+            print-color-adjust: exact !important;
         }
 
         header {
@@ -57,6 +60,7 @@
         }
 
         .terapist-avatar__img {
+            print-color-adjust: exact !important;
             background: url("./images/terapist_avatar.png") no-repeat;
             background-size: contain;
             border-top-left-radius: 30px;
@@ -198,7 +202,8 @@
         .logo {
             width: 350px;
             height: 100px;
-            background: url(./images/logo.png) no-repeat;
+            background: url(./images/logo.svg) no-repeat;
+            print-color-adjust: exact !important;
             background-size: contain;
             margin-left: auto;
         }
@@ -290,64 +295,69 @@
             </div>
         </div>
 
+        <img src="./images/logo.png" alt="logo">
+
     </body>
 
-    <script src="data.js"></script>
+    <script src="../data.js"></script>
 
     <script>
-        console.log(data)
-        // Get references to elements by their id attributes
-        const fullNameElement = document.getElementById('full-name');
-        const specialtiesListElement = document.getElementById('specialties-list');
-        const terapistAvatarElement = document.getElementById('terapist-avatar');
-        const terapistRatingContainerElement = document.getElementById('terapist-rating-container');
-        const biographyTitleElement = document.getElementById('biography-title');
-        const biographyContentElement = document.getElementById('biography-content');
-        const bookLinkElement = document.getElementById('book-link');
-        const areasListElement = document.getElementById('areas-list');
-        const certificationsListElement = document.getElementById('certifications-list');
 
-        // Insert text into elements
-        fullNameElement.textContent = 'New Full Name';
-        biographyTitleElement.textContent = `About {Full Name}`;
-        biographyContentElement.textContent = 'This is the updated biography content.';
-        bookLinkElement.href = 'https://newbookinglink.com';
+        addEventListener('load', () => {
+            console.log(data)
+            // Get references to elements by their id attributes
+            const fullNameElement = document.getElementById('full-name');
+            const specialtiesListElement = document.getElementById('specialties-list');
+            const terapistAvatarElement = document.getElementById('terapist-avatar');
+            const terapistRatingContainerElement = document.getElementById('terapist-rating-container');
+            const biographyTitleElement = document.getElementById('biography-title');
+            const biographyContentElement = document.getElementById('biography-content');
+            const bookLinkElement = document.getElementById('book-link');
+            const areasListElement = document.getElementById('areas-list');
+            const certificationsListElement = document.getElementById('certifications-list');
 
-        // Sample data arrays
-        const newSpecialties = ['New Specialty 1', 'New Specialty 2', 'New Specialty 3'];
-        const newAreas = ['New Area 1', 'New Area 2', 'New Area 3'];
-        const newCertifications = ['New Certification 1', 'New Certification 2'];
+            // Insert text into elements
+            fullNameElement.textContent = data.defaultProps.name;
+            biographyTitleElement.textContent = `About ${data.defaultProps.name}`;
+            biographyContentElement.textContent = data.defaultProps.briefBiography;
+            bookLinkElement.href = 'https://newbookinglink.com';
 
-        // Insert data into lists using loops
-        for (const specialty of newSpecialties) {
-            const listItem = document.createElement('div');
-            listItem.className = 'specialties__item';
-            listItem.textContent = specialty;
-            specialtiesListElement.appendChild(listItem);
-        }
+            // Sample data arrays
+            const newSpecialties = ['New Specialty 1', 'New Specialty 2'];
+            const newAreas = ['New Area 1', 'New Area 2', 'New Area 3'];
+            const newCertifications = ['New Certification 1', 'New Certification 2', 'New Certification 3'];
 
-        for (const area of newAreas) {
-            const listItem = document.createElement('li');
-            listItem.className = 'areas-list__item';
-            listItem.textContent = area;
-            areasListElement.appendChild(listItem);
-        }
+            // Insert data into lists using loops
+            for (const specialty of newSpecialties) {
+                const listItem = document.createElement('div');
+                listItem.className = 'specialties__item';
+                listItem.textContent = specialty;
+                specialtiesListElement.appendChild(listItem);
+            }
 
-        for (const certification of newCertifications) {
-            const listItem = document.createElement('li');
-            listItem.className = 'certifications-list__item';
-            listItem.textContent = certification;
-            certificationsListElement.appendChild(listItem);
-        }
+            for (const area of newAreas) {
+                const listItem = document.createElement('li');
+                listItem.className = 'areas-list__item';
+                listItem.textContent = area;
+                areasListElement.appendChild(listItem);
+            }
 
-        // Sample rating value (between 1 and 5)
-        const ratingValue = 3;
+            for (const certification of newCertifications) {
+                const listItem = document.createElement('li');
+                listItem.className = 'certifications-list__item';
+                listItem.textContent = certification;
+                certificationsListElement.appendChild(listItem);
+            }
 
-        // Generate and insert rating stars based on the rating value
-        for (let i = 1; i <= 5; i++) {
-            const starElement = document.createElement('div');
-            starElement.className = 'rating__star ' + (i <= ratingValue ? 'rating__star--active' : '');
-            terapistRatingContainerElement.appendChild(starElement);
-        }
+            // Sample rating value (between 1 and 5)
+            const ratingValue = data.defaultProps.rate;
+
+            // Generate and insert rating stars based on the rating value
+            for (let i = 1; i <= 5; i++) {
+                const starElement = document.createElement('div');
+                starElement.className = 'rating__star ' + (i <= ratingValue ? 'rating__star--active' : '');
+                terapistRatingContainerElement.appendChild(starElement);
+            }
+        })
     </script>
 </html>

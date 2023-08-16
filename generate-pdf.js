@@ -4,7 +4,7 @@ const globals = require('./config.js')
 
 async function generatePDF(data) {
     try {
-        pasteTerapistDataIntoTemplate(data)
+        // pasteTerapistDataIntoTemplate(data)
 
         const browser = await puppeteer.launch({
             headless: true
@@ -30,6 +30,8 @@ async function generatePDF(data) {
     }
 }
 
+
+// эта функция не особо сейчас нужна
 function pasteTerapistDataIntoTemplate(newData) {
     const filePath = 'data.js';
 
