@@ -7,21 +7,18 @@ async function generatePDF(data) {
         // pasteTerapistDataIntoTemplate(data)
 
         const browser = await puppeteer.launch({
-            headless: true
+            headless: false
         })
-        const page = await browser.newPage()
-        const html = fs.readFileSync(globals.pathToHTMLTemplate, 'utf8')
 
-        await page.setContent(html, {
-            waitUntil: 'load'
-        })
+        const page = await browser.newPage()
+        await page.goto(globals.URLToOpenedHTMLTemplate)
 
         const pdfBuffer = await page.pdf({
             format: 'A4',
             printBackground: true,
         })
 
-        await browser.close()
+        // await browser.close()
 
         return { pdfBuffer, error: null }
     } catch (error) {
@@ -30,8 +27,6 @@ async function generatePDF(data) {
     }
 }
 
-
-// эта функция не особо сейчас нужна
 function pasteTerapistDataIntoTemplate(newData) {
     const filePath = 'data.js';
 

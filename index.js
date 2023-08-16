@@ -14,7 +14,6 @@ app.post('', async (req, res) => {
         return
     }
 
-    res.attachment(`stas.pdf`)
     res.setHeader('Content-Type', 'application/pdf')
     res.setHeader('Content-Disposition', 'attachment')
     res.header('Access-Control-Allow-Origin', '*')
