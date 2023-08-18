@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"nodemon ./index.js\" \"node ./launchHTMLTemplate.js\""
+    "dev": "concurrently \"nodemon ./index.js\" \"nodemon ./launchServerForStoreData.js\""
   },
   "author": "",
   "license": "ISC",

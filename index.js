@@ -2,11 +2,12 @@ const express = require('express')
 const { generatePDF } = require('./generate-pdf.js')
 const app = express()
 const globals = require('./config.js')
-const cors = require('cors');
+const cors = require('cors')
 
-app.use(cors());
+app.use(cors())
+app.use(express.json())
 app.post('', async (req, res) => {
-    const { pdfBuffer, error } = await generatePDF('some test data')
+    const { pdfBuffer, error } = await generatePDF(req.body)
 
     if (error) {
         console.error(error)
