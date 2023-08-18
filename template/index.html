@@ -92,6 +92,7 @@
             background-color: #FBF6E3;
             border-radius: 28px;
             color: #000000;
+            margin-bottom: 20px;
         }
 
         .biography__title {
@@ -213,13 +214,25 @@
         }
 
         .rating__stars {
+            position: relative;
             display: flex;
+        }
+
+        .rating__stars:before {
+            content: "*";
+            position: absolute;
+            right: 0;
+            top: 5px;
+            font-size: 25px;
+            font-weight: 600;
+            color: #582144;
         }
 
         .rating__star {
             width: 85px;
             height: 85px;
             background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFUAAABRCAYAAACjZOpMAAAACXBIWXMAABJ0AAASdAHeZh94AAAMyUlEQVR4Xu2cCViU1RqAz+wLDIzs4pYaiBmZCKWppGKIdiXEi6aGWVnXJVHzilL2qElBelNQQc3CrVREE6guaBo+BZILiKwy7LKNMDDMwjAwMHPPmaJLBszyn4mfnI8Hn0f+c77/O+//nf07BwCzmAmYCZgJmAk8dgRufJs2a7nL3KJlY33zr8en+pEZAIXMxnXb9qC44onl4+ZVOAxzBBq1WiNrkUl+aMsZQlbbqWQ1rKddW3xXZdgPcwBPBYUAJotJ4VpxmRcPnn6TrLaTHir00tFNwgbnCUEbtAxdAtYCBoPJTdh3cresRWpBRrCkh7p72eaLPBvrP7Ab/8/1QC6ROaeeTFxqhmoggcrCUtfSnOJJTy/Z9KecLA4bJMac2SZtlnAMVGvy5KT21JAXg7Ntnex7hYDa1xahaGxhZs4Uk1My8AWkhVp0695E0KmxoDL6NpFjbQkiVr5/VSFXkMpbSQv1+I5DkTQWA4wLWNenn4xftB50KJXU/355MdhAZzJpclJCvffT7ecFdwr8GBCqLvF8631N5Iawox3tHaQpC2kM6Qnv+y8vrNfAacm4hX17aY/0FEe+M0g+Gr9K1wf4q56TDiqaPd1Ivr6czdG/mbSAbWtUSPhRtVpNihki6aBeOZW0kkKhANeFa/V2LOTRto52IGzBmst6ZzJhQroJdRusuhrOnl5zm7/De0O4wXlZbBYo+uXeSxKR2NLabojcYAUYM5DKUz8IWHetr3GprjIjb6VQqeDriM8/0pXW1M9JA7W27MGIqqKy0UwO0+gyo9HC7cvpK6RNLQO6JkAaqGunLs21h0t7Lv5rjIZKY9BBY81D29z0rNlGK8GQkRRQ68qrR0qbxHwaQ/e4tL8yu76yFnCtLMHuVzcnNtYI+Rj4GKWCFFBXTQqosnd2Aq5wWY+oUOlUQKFRqfk37s4hqsvY/AMO9c7VG7MYTBYEgWeIiZoP3hBrcHBjRJxS0UbM9Y2kOuBQk4/Eb6JQ4bgUg5d2M3Bb9C5Qylp5KScuGd9AGwkUZRtQqEU3cyfnZWQtYMIxJm6xhN4aszEiWqlQ6j81w2TEgEEVZBVM2Dz3zds0Ol3fOb5BRR4XuA5Y2w8Bi0fMEokfimwNykwwMZ6GrB8jqgWVo+5czfAV3Cl8ofCXHN+akirnDlU74FpYAGs7G5MA7WlO8TcxQFT3EKg6VcCSxwP2o5zrxk5wufn8vBkXPOZMTXEY7iQmyPBP2QlDFTc0MdvkCms4PhyTn54188KBUztqhQ84VEADLPjDYDIB24ID6HAMSaMzAI1B04IUJMZibUf7A1OSfARoNBqg7uwCXei3qwuo2juAUqEA6AN3wB8GYILRri6Vy8PeDntigksu38FGyLHgSPn2Np2GQtcJtb6ixqlVKueru7rootqG4RDeiPK8Yo+qwvJJdRXVbi0NTdYqVSfcOmYBJpsBWGwIEM5suhVrgIbQgN7QAhmSHsHW2gn/0XRpgErVAdpblaBd2QH/3wVoTAawHWovs3O2L31y0lMZo592yRk6ZniZpRVPQqPTOiD4h3DCInr0nX1C3bNq+xdVhWUewqq6CdATtXNHtHqEfqk0qtbzqDQa9D7aX+ZxhgAjkrYk+bDWEQSXYrVe3dXZqfVw6FjQ4+EHUKu1H8LKhq+2c3bIn/fGws9eXhV0qvudvUJdMf4fRQ01dW5cniWgQ2hooQIJzmEPkUIPdF7UdCFRd6lBJ6ylElEz2H/txHMTX/S6jf7e69JfVXGZm3dIOPwmv9figS4Hqd7f07mQV3OsLEDGd2mB0Egt1F6HVDMDfc9lxUVQUAaz9E9A3Qm9tV0Fnps74/vulL1C3XUheqmHz5REcUOzmWk/BIovxYC21jaw+ciupZ5zpqb3CxU9DL90aOGMgDlf3zoWDkp+a0PMhP9IAI1/34nctNI32P9czyc6h1RHQvdGJsWe3YpmJy5wac0svxL4KeoDsPfKF7Of852e9igTndPU1Xu2bJvsOy2pRdRi5vkbgbSoMLDj3GeBvQFFSXR6ajfJ6HW7j6WcTlzl9eb7jy3c+xcOwDZUCbaf2Ttryjzv632B0Buqtp1dvuXcz5d+WMJ3tAVolf1xkiIEVN7W9Uly7JSJ3p53+iu7QVCRojORx7Yd3xUbYeNo89hMBtCijFwqU+1NOeYxYeqz+bqcyWCoSGFC1KkNR7d9FmUDPVbP0BxddpDyuXbmBAlVVJSAyw13rYY42Mr0MVRnR9WbkqCNK6K3fL4rWAo7LzRW+7sKWtUqrxBoUoXZegNFLIyCijLOXRHw1bp9W/8l+ZuCLYiPBtIWieq6tIhj42Snl4d2O5dR1b+nZ2Z+l+b30bItiZbWliw3GC/6d5CC+Ci0GiWPy00cBqu81NAyEYaKXpj9483pYQtWX7HkW3FQ2Phglrxz+wGNRm0+nps8ysqWb1RMFhaoCGLuz1le2wPXX2MyGbzxgxAs6pRUKhXchVW0nSm74ghX/A2q8j0dyeg29VFvfGbG5Nvhlw76wNMinfcvHhx0zooWooW1NaokUSaPCFBUcGye2k0xLyPbI9Tv7UxLPo85WNrYAljl64S1ql9AhfHRcT3cCJundut0n+aRfbo4xQkuibUOhuFW3tn9wG6Ec15GZym24APsUBFcuG8jDjsREShrlpC6GRDAMbZGo5bsStg/B+61oZ0OLGISqMiyaf6zr8hlUlAKdyzJKqqOTjBp9tQfhz4xrAGnjSaD+quR2JtsnGWHG5oUIBY2Doe7xVg5YFXWs8QVBaWjOVwOeNJ/NVYQOJWhMXXR7TwvYVXtGJx6TQb19MeHd3AteThtxa4LbWyijTuVUoWtk0JGmgxq2vnU11lcrLZih4oCJugwDEkukfJxKjcZVBabbXAMEs6C6auLDkN7yvNKPPVNr086k0GlE4zf18d4HGkY0M6im/ewHrwwCdSsq5nTYbg5ndx9/6+fBJ0RqMgvmYzjA3XrMAnU8oLSZ6lwuILuOyG7oKBjUV3DMJlYgu18gEmg1pZUPkOF0YGDQVAEo0IqB/CSGxtc9poEqqhG6AJ+ixTEZaip9GhHALCzqi+vccX1DpNArauqc6EOEqgIJLrkJj3x2mLSQoVtE7tD0WaFpoCDRVgcFvj2WMK7uOzFfjRdkF3oJRfLeCwuG5eNWj0oqlmtgRHMqMeGtQBnADLqrGTKFmz2Yodafb/CrRNuS7gHvIfFSLQ8B89CwQMY9C50sAHePgEUMsWQfLiwjM5f4YLLBhyot5XF5Vm0EzUcO9SWRrED6lGJiCApVnu2QClvg+HfKuCz9OU4GFN/wNXjqXtIb3rSNf9vDn79YcndQk+088lkMwlFJKJFH/EXH4P7t/K8kHoitmtrElEFj+avFlS402F1MlYESYe1J0Tqy6uB+3SPy1Fpp9w3xe54qxso0jv9FZ/kfVfjvHbG7/extOaJmuoaAdoXIxL5jY4lXYw+vcVYu3vmw9qbNFTX2655fkktlU5juQUa1u6jxWxVhwq0wOjtmYvnJgRvXx06ym1spa5CwqaBAi9fcH/P541bMD/L1snOqOXG+xcPAXmLFKTIsggzMd6leiktBOIkaRKzpq7ZqYvF78+1+1iwnWwWiQEFHmWCAQyuI93GVG7/aq9eOthcNtoGyYW/7OsJqf4hQcFJshOfAi6PC8YZENyBOj9lm1Kvd+pKhLX6w/ti6VSqft8J7bMXnI+GnVAbLEx7267z+/1+UN5jIqC6jO7r+cwgv+Rc0Eh56+ON78DLv0DOV/+BzcIh/dRB/0Tb1DgEK9SHD+pG0Zj9Qy1JPAzyzu4DrbCq8ax5D7bGfTIvWZTJnbZgNrbrjxauW3YsseEGJfiD1SHwIJk663gEKEo40C8v5KnoiGdTfSPh+1ewQoVHzacz4EnA3gR1Ive/OQTgWVbwjLdnfGjcJ/NPFn0/atqCWak4vKM3HYs3vX4wJvOs0/Kt74QyWEx59vHIPqMU0QiAzeaCysKyp4nao19d1fMtxXfyvdHxykcFVXXUAaFDtwd+Pu3u5ume/1FCtJ5aiSVzHOncCDXshfdVxaadT3nt8L/3xN49uYcKA+rgqdk/nmJEM6trZ75dAf98k8hbsXrqwwf1T8L7S/7fCSXGAOQd9ZW1IPTLcP8rbTkUBJSIwcbmhReAtQasXXb0siKH5vPq/BghtEnZqgBoTNwtyCFupqYHGvsOk+SLXBkWN9/KS7No2IuaAPsXNC+xJmrgFceLTPIyDEo/DApJnk131ywa6q212c9ikub4zphQoqoJj8l6GgDHqfYbZ75+A94h3ch3tKn+9LujS4gaaOr8NYKqkTtf3XiZRqOrm4Ui64TqtOGmfqdZv5mAmYCZgJmA/gT+B9EBmlF0FosBAAAAAElFTkSuQmCC') no-repeat;
+            margin-right: 10px;
         }
 
         .rating__star--active {
@@ -265,12 +278,12 @@
         <div class="body">
             <div class="body__col body-col">
                 <div class="body-col__item biography">
-                    <div class="biography__title" id="biography-title">About Dr. Kara Dioniso</div>
+                    <div class="biography__title" id="biography-title"></div>
 
                     <div class="biography__content" id="biography-content"></div>
                 </div>
 
-                <a class="body-col__item book-link" id="book-link" href="#">Book Appointment</a>
+                <a class="body-col__item book-link" id="book-link" href="#" target="_blank">Book Appointment</a>
             </div>
 
             <div class="body__col body-col">
@@ -293,77 +306,71 @@
     </body>
 
     <script>
-        async function getData() {
-            fetch('http://localhost:3000')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log(data); // Здесь вы можете работать с полученными данными
-                })
-                .catch(error => {
-                    console.error('Fetch error:', error);
-                });
+        async function fetchData(url) {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
         }
-        getData()
 
-        // console.log(data)
-        // const newData = JSON.parse(data)
-        // // Get references to elements by their id attributes
-        // const fullNameElement = document.getElementById('full-name');
-        // const specialtiesListElement = document.getElementById('specialties-list');
-        // const terapistAvatarElement = document.getElementById('terapist-avatar');
-        // const terapistRatingContainerElement = document.getElementById('terapist-rating-container');
-        // const biographyTitleElement = document.getElementById('biography-title');
-        // const biographyContentElement = document.getElementById('biography-content');
-        // const bookLinkElement = document.getElementById('book-link');
-        // const areasListElement = document.getElementById('areas-list');
-        // const certificationsListElement = document.getElementById('certifications-list');
-        //
-        // // Insert text into elements
-        // fullNameElement.textContent = data.defaultProps.name;
-        // biographyTitleElement.textContent = `About ${data.defaultProps.name}`;
-        // biographyContentElement.textContent = data.defaultProps.briefBiography;
-        // bookLinkElement.href = 'https://newbookinglink.com';
-        //
-        // // Sample data arrays
-        // const newSpecialties = ['New Specialty 1', 'New Specialty 2'];
-        // const newAreas = ['New Area 1', 'New Area 2', 'New Area 3'];
-        // const newCertifications = ['New Certification 1', 'New Certification 2', 'New Certification 3'];
-        //
-        // // Insert data into lists using loops
-        // for (const specialty of newSpecialties) {
-        //     const listItem = document.createElement('div');
-        //     listItem.className = 'specialties__item';
-        //     listItem.textContent = specialty;
-        //     specialtiesListElement.appendChild(listItem);
-        // }
-        //
-        // for (const area of newAreas) {
-        //     const listItem = document.createElement('li');
-        //     listItem.className = 'areas-list__item';
-        //     listItem.textContent = area;
-        //     areasListElement.appendChild(listItem);
-        // }
-        //
-        // for (const certification of newCertifications) {
-        //     const listItem = document.createElement('li');
-        //     listItem.className = 'certifications-list__item';
-        //     listItem.textContent = certification;
-        //     certificationsListElement.appendChild(listItem);
-        // }
-        //
-        // // Sample rating value (between 1 and 5)
-        // const ratingValue = data.defaultProps.rate;
-        //
-        // // Generate and insert rating stars based on the rating value
-        // for (let i = 1; i <= 5; i++) {
-        //     const starElement = document.createElement('div');
-        //     starElement.className = 'rating__star ' + (i <= ratingValue ? 'rating__star--active' : '');
-        //     terapistRatingContainerElement.appendChild(starElement);
-        // }
+        function updateFullName(fullName, name) {
+            fullName.textContent = name;
+        }
+
+        function updateBiography(biographyTitle, biographyContent, name, briefBiography) {
+            biographyTitle.textContent = `About ${name}`;
+            biographyContent.textContent = briefBiography;
+        }
+
+        function updateBookLink(bookLink, onlineBookingLink) {
+            bookLink.href = onlineBookingLink;
+        }
+
+        function createListItems(container, items, elementType, classNameKey, textKey) {
+            for (const item of items) {
+                const listItem = document.createElement(elementType);
+                listItem.className = classNameKey;
+                listItem.textContent = item[textKey];
+                container.appendChild(listItem);
+            }
+        }
+
+        function createRatingStars(container, ratingValue) {
+            for (let i = 1; i <= 5; i++) {
+                const starElement = document.createElement('div');
+                starElement.className = 'rating__star ' + (i <= ratingValue ? 'rating__star--active' : '');
+                container.appendChild(starElement);
+            }
+        }
+
+        async function getData() {
+            try {
+                const data = await fetchData('http://localhost:3000');
+
+                const fullNameElement = document.getElementById('full-name');
+                const specialtiesListElement = document.getElementById('specialties-list');
+                const biographyTitleElement = document.getElementById('biography-title');
+                const biographyContentElement = document.getElementById('biography-content');
+                const bookLinkElement = document.getElementById('book-link');
+                const terapistRatingContainerElement = document.getElementById('terapist-rating-container');
+                const areasListElement = document.getElementById('areas-list');
+                const certificationsListElement = document.getElementById('certifications-list');
+
+                updateFullName(fullNameElement, data.defaultProps.name);
+                updateBiography(biographyTitleElement, biographyContentElement, data.defaultProps.name, data.defaultProps.briefBiography);
+                updateBookLink(bookLinkElement, data.defaultProps.onlineBookingLink);
+
+                createListItems(specialtiesListElement, data.additionalData.specialties.list, 'div', 'specialties__item', 'name');
+                createListItems(areasListElement, data.additionalData.areaOfFocuses.list, 'li', 'areas-list__item', 'name');
+                createListItems(certificationsListElement, data.additionalData.certifications.list, 'li', 'certifications-list__item', 'certificationFacilityName');
+
+                createRatingStars(terapistRatingContainerElement, data.defaultProps.rate);
+            } catch (error) {
+                console.error('An error occurred during receive data:', error);
+            }
+        }
+
+        getData();
     </script>
 </html>

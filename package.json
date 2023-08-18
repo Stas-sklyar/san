@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"nodemon ./index.js\" \"nodemon ./launchServerForStoreData.js\""
+    "start": "concurrently \"node ./index.js\" \"node ./launchServerForStoreData.js\""
   },
   "author": "",
   "license": "ISC",
@@ -13,8 +13,5 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "puppeteer": "^20.7.4"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.22"
   }
 }

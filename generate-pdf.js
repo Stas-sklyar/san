@@ -1,5 +1,4 @@
 const puppeteer = require('puppeteer')
-const fs = require('fs')
 const fsPromises = require('fs').promises
 
 async function generatePDF(data) {
@@ -7,18 +6,16 @@ async function generatePDF(data) {
         try {
             console.log("generatePDF")
             const browser = await puppeteer.launch({
-                headless: false,
-                devtools: true
+                headless: false
             })
 
             const page = await browser.newPage()
 
-            // fs.writeFileSync('template/data.json', JSON.stringify(data), 'utf8')
             await fsPromises.writeFile('template/data.json', JSON.stringify(data), 'utf8');
 
             const html = await fsPromises.readFile('template/index.html', 'utf-8')
             await page.setContent(html, { waitUntil: 'load' })
-            await page.waitForTimeout(2000); // ждем 1 секунду,
+            await page.waitForTimeout(2000)
 
             await page.emulateMediaType('screen')
 
