@@ -4,9 +4,8 @@ const fsPromises = require('fs').promises
 async function generatePDF(data) {
     return new Promise(async (resolve, reject) => {
         try {
-            console.log("generatePDF")
             const browser = await puppeteer.launch({
-                headless: false
+                headless: true
             })
 
             const page = await browser.newPage()
