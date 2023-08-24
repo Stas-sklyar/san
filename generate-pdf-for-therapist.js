@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer')
 const fsPromises = require('fs').promises
 
-async function generatePDF(data) {
+async function generatePdfForTherapist(data) {
     return new Promise(async (resolve, reject) => {
         try {
             const browser = await puppeteer.launch({
@@ -10,9 +10,9 @@ async function generatePDF(data) {
 
             const page = await browser.newPage()
 
-            await fsPromises.writeFile('template/data.json', JSON.stringify(data), 'utf8');
+            await fsPromises.writeFile('template/therapistData.json', JSON.stringify(data), 'utf8');
 
-            const html = await fsPromises.readFile('template/index.html', 'utf-8')
+            const html = await fsPromises.readFile('template/therapistTemplate.html', 'utf-8')
             await page.setContent(html, { waitUntil: 'load' })
             await page.waitForTimeout(2000)
 
@@ -33,4 +33,4 @@ async function generatePDF(data) {
     })
 }
 
-module.exports = { generatePDF }
+module.exports = { generatePDF: generatePdfForTherapist }
