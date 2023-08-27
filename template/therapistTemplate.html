@@ -403,9 +403,9 @@
                 updateAvatar(terapistAvatar, data.additionalData.terapistAvatar);
                 updateNamesCertificate(namsCertificate, data.defaultProps.namsCertified);
 
-                createListItems(specialtiesListElement, data.additionalData.specialties.list, 'div', 'specialties__item', 'name');
-                createListItems(areasListElement, data.additionalData.areaOfFocuses.list, 'li', 'areas-list__item', 'name');
-                createListItems(certificationsListElement, data.additionalData.certifications.list, 'li', 'certifications-list__item', 'certificationFacilityName');
+                createListItems(specialtiesListElement, data.additionalData.specialties, 'div', 'specialties__item', 'name');
+                createListItems(areasListElement, data.additionalData.areaOfFocuses, 'li', 'areas-list__item', 'name');
+                createListItems(certificationsListElement, data.additionalData.certifications, 'li', 'certifications-list__item', 'certificationFacilityName');
 
                 createRatingStars(terapistRatingContainerElement, data.defaultProps.rate);
             } catch (error) {
