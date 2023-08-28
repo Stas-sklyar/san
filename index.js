@@ -8,6 +8,7 @@ const cors = require('cors')
 app.use(cors())
 app.use(express.json())
 app.post('/therapist', async (req, res) => {
+    console.log(req.body)
     const { pdfBuffer, error } = await generatePDF(req.body)
 
     handleError(error)

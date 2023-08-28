@@ -338,9 +338,9 @@
         }
 
         function updateBiography(biographyTitle, biographyContent, name, briefBiography) {
-            if (!briefBiography) return;
-
             biographyTitle.textContent = `About ${name}`;
+
+            if (!briefBiography) return;
             biographyContent.textContent = briefBiography;
         }
 
@@ -351,6 +351,8 @@
         }
 
         function createListItems(container, items, elementType, classNameKey, textKey) {
+            if (!items || items.length === 0) return;
+
             for (const item of items) {
                 const listItem = document.createElement(elementType);
                 listItem.className = classNameKey;
@@ -360,11 +362,9 @@
         }
 
         function createRatingStars(container, ratingValue) {
-            if (!ratingValue) return;
-
             for (let i = 1; i <= 5; i++) {
                 const starElement = document.createElement('div');
-                starElement.className = 'rating__star ' + (i <= ratingValue ? 'rating__star--active' : '');
+                starElement.className = 'rating__star ' + (i <= (ratingValue || 0) ? 'rating__star--active' : '');
                 container.appendChild(starElement);
             }
         }
